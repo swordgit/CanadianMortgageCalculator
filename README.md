@@ -1,5 +1,6 @@
 # Canadian_Mortgage_Calculator
-This is an Android application that will calculate the mortgage payment stream
+This is an Android application that will calculate the mortgage payment stream.
+
 The files here are generated using Android Studio 1.5.1
 
 This application would require user to input value of the mortgage, percent of downpayment, how many years of term and the mortgage rate.
