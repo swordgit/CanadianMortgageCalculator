@@ -28,10 +28,6 @@ public class Calculator
         down_payment_amount = (downPayment / PERCENT_TO_DECIMAL) * value;
         mortgageAmount = value - down_payment_amount;
         paymentList = new ArrayList<String>();
-        Log.v("Calculator", String.valueOf(year));
-        Log.v("Calculator", String.valueOf(rate_in_decimal));
-        Log.v("Calculator", String.valueOf(down_payment_amount));
-        Log.v("Calculator", String.valueOf(mortgageAmount));
         this.calculate();
     }
 

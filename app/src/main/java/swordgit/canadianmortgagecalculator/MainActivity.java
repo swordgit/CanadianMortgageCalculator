@@ -12,11 +12,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
+    /*Attribute that stored user input and system out
+      value : the value of the real estate
+      downPercent : the percentage of down payment
+      year : the amortization period in terms of year
+    */
     private double value;
     private double downPercent;
     private double year;
     private double ratePercent;
-    private ArrayList<String> al = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,6 +28,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button cal = (Button) findViewById(R.id.buttonCalculate);
+        /*when the button is clicked, the input will be passed to a EditText variable,
+          and then parse the text from String to double and store to corresponding variable
+         */
         cal.setOnClickListener
                 (
                         new View.OnClickListener()
@@ -31,16 +38,18 @@ public class MainActivity extends AppCompatActivity
                             @Override
                             public void onClick(View v)
                             {
-                                EditText y = (EditText)findViewById(R.id.year);
-                                EditText val = (EditText)findViewById(R.id.value);
+                                EditText yearOfAmortization = (EditText)findViewById(R.id.year);
+                                EditText valueOfEstate= (EditText)findViewById(R.id.value);
                                 EditText down = (EditText)findViewById(R.id.downPayment);
                                 EditText rate = (EditText)findViewById(R.id.rate);
-                                value = Double.parseDouble(val.getText().toString());
+                                value = Double.parseDouble(valueOfEstate.getText().toString());
                                 ratePercent = Double.parseDouble(rate.getText().toString());
-                                year = Double.parseDouble(y.getText().toString());
+                                year = Double.parseDouble(yearOfAmortization.getText().toString());
                                 downPercent = Double.parseDouble(down.getText().toString());
+                                //passing the attributes as argument to a the calculator to process
                                 Calculator calculator = new Calculator(value, downPercent, ratePercent, year);
                                 Intent i = new Intent(MainActivity.this, ResultActivity.class);
+                                //passing the list of payment stream to ResultActivity class
                                 i.putStringArrayListExtra("list", calculator.getPaymentList());
                                 MainActivity.this.startActivity(i);
 

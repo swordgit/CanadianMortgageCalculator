@@ -16,8 +16,9 @@ public class ResultActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        //retrieve the passed payment list
         ArrayList<String> list = getIntent().getStringArrayListExtra("list");
-        Log.v("list1", list.get(0));
+        //setup adapter and apply to list view which is a list created in activity_result
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.adaptlist, list);
         ListView lv = (ListView)findViewById(R.id.listView);
         lv.setAdapter(adapter);
