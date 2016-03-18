@@ -77,10 +77,10 @@ public class Calculator
                 principal = payment - interest;
                 mortgageAmount -= principal;
             }
-            DecimalFormat formatNumber = new DecimalFormat("#.##");
             String statement;
-            statement = "  " + month + "  " + formatNumber.format(payment) + "  " + formatNumber.format(interest) + "  "+
-                    formatNumber.format(principal) + "  " + formatNumber.format(mortgageAmount);
+            statement = String.format("\t%5.5s\t", String.valueOf(month)) + String.format("\t%10.2f\t", payment)
+                                    + String.format("\t%8.2f\t", interest) + String.format("\t%10.2f\t", principal)
+                                    + String.format("\t%13.2f", mortgageAmount);
             paymentList.add(statement);
         }
 
